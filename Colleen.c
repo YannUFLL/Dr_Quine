@@ -1,6 +1,6 @@
 #include <stdio.h>
-
 //c2
-void printHello(){printf("hello");};
+void emptyFunction(){};
 int main(){//c1
-char*a="#include <stdio.h>\n%c//c2%cvoid printHello(){printf(%chello%c);};%cint main(){//c1%cchar*a=%c%s%c;printf(a,10,10,34,34,10,10,34,a,34);}";printf(a,10,10,34,34,10,10,34,a,34);}
+emptyFunction();
+char*a="#include <stdio.h>%c//c2%cvoid emptyFunction(){};%cint main(){//c1%cemptyFunction();%cchar*a=%c%s%c;printf(a,10,10,10,10,10,34,a,34);}";printf(a,10,10,10,10,10,34,a,34);}
