@@ -1,12 +1,12 @@
-ASM_SRC := $(wildcard *.asm)
-ASM_PROGS := $(patsubst %.asm, %, $(ASM_SRC))
+ASM_SRC := $(wildcard *.s)
+ASM_PROGS := $(patsubst %.s, %, $(ASM_SRC))
 
 all: $(ASM_PROGS)
 
 $(ASM_PROGS): %: obj/%.o
 	gcc -g -no-pie $< -o $@
 
-obj/%.o: %.asm
+obj/%.o: %.s
 	nasm -f elf64 -g -F dwarf $< -o $@
 
 clean:
@@ -16,8 +16,8 @@ clean:
 fclean: clean
 	rm -f $(ASM_PROGS)
 	rm -f Sully_*
-	rm -f Sully_*.asm
-	rm -f Grace_kid.asm
+	rm -f Sully_*.s
+	rm -f Grace_kid.s
 	rm -f Sully_*.o
 
 re: fclean all
